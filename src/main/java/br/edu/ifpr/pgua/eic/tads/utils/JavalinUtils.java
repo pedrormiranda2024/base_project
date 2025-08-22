@@ -13,12 +13,9 @@ import io.javalin.rendering.template.JavalinPebble;
 
 
 public class JavalinUtils {
-    
+
     public static Javalin makeApp(int port){
-        
-        
-        
-        
+
         Javalin app = Javalin.create(config->{
             Configuration conf = new Configuration(Configuration.VERSION_2_3_33);
             conf.setClassForTemplateLoading(JavalinUtils.class, "/public");
@@ -27,7 +24,7 @@ public class JavalinUtils {
                 System.out.println(ctx.method() +" "+ ctx.fullUrl());
             });
             config.staticFiles.add("public",Location.CLASSPATH);
-            
+
         }).start(port);
         return app;
     }
